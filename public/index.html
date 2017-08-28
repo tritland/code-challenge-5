@@ -9,24 +9,26 @@
 
 
     </head>
-    <body>
+    <body ng-app="MessagesApp" ng-controller="MessagesController as vm">
        <h1> Messaging Board App </h1>
         
        <label>Name:</label>
-       <input type="text" name="name">
+       <input type="text" name="name" ng-model="vm.newMessage.name">
        <label>Message:</label>
-       <input type="text" name="message">
-       <button>Submit</button>
+       <input type="text" name="message" ng-model="vm.newMessage.message">
+       <button ng-click="vm.postNewMessage(vm.newMessage)">Submit</button>
     
+{{vm}}
+
        <table>
         <tr>
             <th>Name</th>
             <th>Message</th>
         </tr>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
+            <trng-repeat="message in vm.messages.list">
+                <td>{{message.name}}</td>
+                <td>{{message.message}}</td>
             </tr>
         </tbody>
     </table>
