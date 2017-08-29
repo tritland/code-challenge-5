@@ -1,5 +1,3 @@
-var app = angular.module('MessagesApp', []);
-
 app.controller('MessagesController', ['$http', function($http){
     console.log('Messages Controller has been loaded');
     var self = this;
@@ -13,7 +11,7 @@ app.controller('MessagesController', ['$http', function($http){
             url: '/messages',
             data: newMessage,
         }).then(function(response){
-            console.log(response);
+            console.log('post response:', response.data);
             self.getMessages();
         });
     };
@@ -23,14 +21,10 @@ app.controller('MessagesController', ['$http', function($http){
             method: 'GET',
             url: '/messages',
         }).then(function (response) {
-            console.log(response);
             console.log(response.data);
             self.messages.list = response.data;
         });
     };
 
-
+    self.getMessages();
 }]);
-
-
-

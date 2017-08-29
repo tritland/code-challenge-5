@@ -6,6 +6,7 @@
         <script src="vendors/angular.min.js"></script>
         <script src="vendors/angular-route.min.js"></script>
         <script src="client.js"></script>
+        <script src="scripts/controllers/messages.controller.js"></script>
 
 
     </head>
@@ -17,8 +18,6 @@
        <label>Message:</label>
        <input type="text" name="message" ng-model="vm.newMessage.message">
        <button ng-click="vm.postNewMessage(vm.newMessage)">Submit</button>
-    
-{{vm}}
 
        <table>
         <tr>
@@ -26,7 +25,7 @@
             <th>Message</th>
         </tr>
         <tbody>
-            <trng-repeat="message in vm.messages.list">
+            <tr ng-repeat="message in vm.messages.list">
                 <td>{{message.name}}</td>
                 <td>{{message.message}}</td>
             </tr>
